@@ -1,56 +1,467 @@
-/**
- * WHAT IS THIS FILE?
- *
- * Globally applied styles. No matter which components are in the page or matching route,
- * the styles in here will be applied to the Document, without any sort of CSS scoping.
- *
- */
+@import url("https://fonts.googleapis.com/css2?family=Jost:wght@400;600;700&display=swap");
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
 :root {
-  --qwik-dark-blue: #006ce9;
-  --qwik-light-blue: #18b6f6;
-  --qwik-light-purple: #ac7ff4;
-  --qwik-dark-purple: #713fc2;
-  --qwik-dirty-black: #1d2033;
-  --qwik-dark-background: #151934;
-  --qwik-dark-text: #ffffff;
+  --font-primary: "Jost", sans-serif;
+  --clr-white: hsl(0, 0%, 100%);
+  --clr-body: hsl(230, 60%, 98%);
+  --clr-violet: hsl(282, 83%, 52%);
+  --clr-violet-hover: hsl(282, 90%, 66%);
+  --clr-blue: hsl(230, 76%, 59%);
+  --clr-blue-hover: hsla(197, 65%, 47%, 70%);
+  --clr-navy-300: hsl(231, 33%, 34%);
+  --clr-navy-400: hsl(230, 31%, 31%);
+  --clr-navy-400-hover: hsl(231, 25%, 52%);
+  --clr-danger: hsl(0, 67%, 53%);
+  --clr-danger-hover: hsl(0, 69%, 72%);
+  --clr-grey-300: hsl(224, 20%, 49%);
 }
 
 html {
+  font-size: 62.5%;
+}
+
+body {
+  padding: 9rem 0;
+  background-color: var(--clr-body);
+  font-family: var(--font-primary);
+
+  font-size-adjust: 100%;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   line-height: 1;
-  -webkit-text-size-adjust: 100%;
-  -moz-tab-size: 4;
-  -o-tab-size: 4;
-  tab-size: 4;
-  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
-    'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
-    'Segoe UI Symbol', 'Noto Color Emoji';
 }
 
-body {
-  padding: 0;
-  margin: 0;
-  line-height: inherit;
+a {
+  text-decoration: none;
 }
 
-/**
- * WHAT IS THIS FILE?
- *
- * Globally applied styles. No matter which components are in the page or matching route,
- * the styles in here will be applied to the Document, without any sort of CSS scoping.
- *
- */
-html {
-  -webkit-text-size-adjust: 100%;
-  -moz-tab-size: 4;
-  -o-tab-size: 4;
-  tab-size: 4;
-  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
-    'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
-    'Segoe UI Symbol', 'Noto Color Emoji';
+p,
+.text {
+  font-size: 1.6rem;
+  color: var(--clr-grey-300);
 }
 
-body {
-  padding: 0;
-  line-height: inherit;
+.c-pointer {
+  cursor: pointer;
+}
+
+h1 {
+  font-size: 2.4rem;
+  letter-spacing: -0.25px;
+  color: var(--clr-navy-300);
+}
+
+h3 {
+  font-size: 1.8rem;
+  letter-spacing: -0.25px;
+  color: var(--clr-navy-300);
+}
+
+h4,
+.h4 {
+  font-weight: 700;
+  font-size: 1.4rem;
+  letter-spacing: -0.19px;
+  color: var(--clr-navy-300);
+}
+
+button,
+input,
+select,
+textarea {
+  border: 0;
+  border-color: transparent;
+  font-family: var(--font-primary);
+}
+
+fieldset {
+  border: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+input,
+select,
+textarea {
+  padding: 1.2rem 1.6rem;
+  border-radius: 0.5rem;
+  font-size: 1.5rem;
+  color: var(--clr-navy-300);
+  background-color: var(--clr-body);
+  width: 100%;
+}
+
+textarea {
+  margin-block: 1.6rem;
+}
+
+input:focus,
+input:focus-visible,
+select:focus,
+select:focus-visible,
+textarea:focus,
+textarea:focus-visible {
+  border: 1px solid var(--clr-navy-300);
+  outline: none;
+}
+
+input.error,
+select.error,
+textarea.error {
+  border: 1px solid var(--clr-danger);
+}
+
+p.error {
+  margin-top: 0.8rem;
+  font-size: 1.4rem;
+  color: var(--clr-danger);
+}
+
+input,
+select {
+  height: 48px;
+}
+
+select {
+  cursor: pointer;
+  -webkit-appearance: none;
+  appearance: none;
+  background-image: url("../assets/shared/icon-arrow-down.svg");
+  background-repeat: no-repeat;
+  background-position: right 2.4rem center;
+}
+
+textarea {
+  height: 96px;
+  resize: none;
+}
+
+fieldset + fieldset {
+  margin-top: 2.4rem;
+}
+
+button {
+  background-color: transparent;
+}
+
+.button {
+  cursor: pointer;
+  padding-block: 1.2rem;
+  padding-inline: 2.4rem;
+  font-size: 1.4rem;
+  font-weight: 700;
+  line-height: 2rem;
+  color: var(--clr-white);
+  border-radius: 1rem;
+  background-color: var(--btn-bg-color);
+  transition: background 350ms cubic-bezier(0.39, 0.575, 0.565, 1),
+    color 350ms cubic-bezier(0.39, 0.575, 0.565, 1);
+}
+
+.button-primary {
+  --btn-bg-color: var(--clr-violet);
+}
+
+.button-secondary {
+  --btn-bg-color: var(--clr-navy-400);
+}
+
+.button-tertiary {
+  --btn-bg-color: var(--clr-blue);
+}
+
+.button-danger {
+  --btn-bg-color: var(--clr-danger);
+}
+
+.button-small {
+  padding-block: 0.8rem;
+  padding-inline: 1.2rem;
+  font-size: 1.2rem;
+}
+
+@media (hover: hover) {
+  .button-primary:hover {
+    --btn-bg-color: var(--clr-violet-hover);
+  }
+
+  .button-secondary:hover {
+    --btn-bg-color: var(--clr-navy-400-hover);
+  }
+
+  .button-danger:hover {
+    --btn-bg-color: var(--clr-danger-hover);
+  }
+}
+
+.topbar {
+  margin-bottom: 2.4rem;
+  padding: 1.4rem 2.4rem;
+  padding-left: 1.6rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--clr-navy-400);
+}
+
+.topbar strong {
+  font-size: 1.8rem;
+  color: var(--clr-white);
+}
+
+.d-inline-flex {
+  display: inline-flex;
+}
+
+.d-flex {
+  display: flex;
+}
+
+.align-items-center {
+  align-items: center;
+}
+
+.justify-content-space-between {
+  justify-content: space-between;
+}
+
+.b-radius-10 {
+  border-radius: 1rem;
+}
+
+.gap-16 {
+  gap: 1.6rem;
+}
+
+.container {
+  width: min(1110px, 100%);
+  margin: 0 auto;
+}
+
+.grid {
+  display: grid;
+}
+
+.grid-layout-2 {
+  gap: 3rem;
+  grid-template-columns: 25.5rem 82.5rem;
+}
+
+.feedback {
+  position: relative;
+  padding: 2.8rem 3.2rem;
+  gap: 4rem;
+}
+
+.feedback:not(:first-child) {
+  margin-top: 2rem;
+}
+
+.feedback p {
+  margin-top: 0.6rem;
+  margin-bottom: 1.2rem;
+}
+
+.feedback-counter {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  place-content: center;
+  place-items: center;
+  padding: 1em;
+  border-radius: 1rem;
+  background-color: hsl(231, 100%, 97%);
+  font-weight: 700;
+  font-size: 1.3rem;
+}
+
+.badge {
+  cursor: pointer;
+  padding: 0.6rem 1.6rem;
+  display: inline-block;
+  color: var(--clr-blue);
+  font-size: 1.3rem;
+  font-weight: 600;
+  text-transform: capitalize;
+  background-color: hsl(231, 100%, 97%);
+  transition: background 350ms cubic-bezier(0.39, 0.575, 0.565, 1),
+    color 350ms cubic-bezier(0.39, 0.575, 0.565, 1);
+}
+
+.badge:hover,
+.badge--invert {
+  color: var(--clr-white);
+  background-color: var(--clr-blue);
+}
+
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 2.4rem;
+  gap: 1.4rem;
+}
+
+.box {
+  border-radius: 1rem;
+  background-color: var(--clr-white);
+}
+
+.pt-24 {
+  padding-top: 2.4rem;
+}
+
+.pb-24 {
+  padding-bottom: 2.4rem;
+}
+
+.py-24 {
+  padding-top: 2.4rem;
+  padding-bottom: 2.4rem;
+}
+
+.px-24 {
+  padding-left: 2.4rem;
+  padding-right: 2.4rem;
+}
+
+.ml-auto {
+  margin-left: auto;
+}
+
+.mx-auto {
+  margin-right: auto;
+}
+
+aside {
+  display: flex;
+  flex-direction: column;
+  gap: 2.4rem;
+}
+
+.roadmap .count {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--clr-grey-300);
+}
+
+.roadmap-item {
+  margin-block: 0.4rem;
+  position: relative;
+  padding-left: 2.4rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.roadmap-item::before {
+  position: absolute;
+  left: 0;
+  content: "";
+  width: 0.8rem;
+  height: 0.8rem;
+  border-radius: 50%;
+}
+
+.roadmap-item.planned::before {
+  background-color: hsl(14, 83%, 74%);
+}
+
+.roadmap-item.progress::before {
+  background-color: hsl(282, 83%, 52%);
+}
+
+.roadmap-item.live::before {
+  background-color: hsl(204, 94%, 68%);
+}
+
+.empty-screen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 600px;
+}
+
+.empty-screen-container {
+  width: 410px;
+  text-align: center;
+}
+
+.empty-screen h1 {
+  margin-top: 5.6rem;
+}
+
+.empty-screen p {
+  margin-top: 1.6rem;
+  margin-bottom: 4.8rem;
+}
+
+.form-container {
+  margin: 0 auto;
+}
+
+.form-container-md {
+  max-width: 540px;
+}
+
+.form-container-lg {
+  max-width: 730px;
+}
+
+.link {
+  font-size: 1.4rem;
+}
+
+.link > img {
+  display: inline-block;
+  margin-right: 1rem;
+}
+
+.link:hover {
+  color: var(--clr-blue);
+}
+
+.button-group {
+  gap: 1.6rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.button-group .button-danger {
+  margin-right: auto;
+}
+
+form {
+  margin-top: 6rem;
+}
+
+form h1 {
+  margin-bottom: 4rem;
+}
+
+form .text {
+  font-size: 1.4rem;
+}
+
+form label + * {
+  margin-top: 1.6rem;
 }

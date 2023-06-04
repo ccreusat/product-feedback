@@ -33,6 +33,7 @@
     "typescript": "5.0.4",
     "undici": "5.22.1",
     "vite": "4.3.5",
+    "vite-plugin-simple-json-server": "^0.6.2",
     "vite-tsconfig-paths": "4.2.0"
   }
 }
